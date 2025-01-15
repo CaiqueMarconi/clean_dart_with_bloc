@@ -1,0 +1,7 @@
+
+bricks:
+  clean_dart:
+    path: ".mason\\bricks\\clean_dart"
+  module: ^0.1.0+1
+  module_brick: ^0.0.2
+ 
