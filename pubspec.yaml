@@ -38,7 +38,6 @@ dependencies:
   flutter_modular: ^6.3.3
   flutter_bloc: ^9.0.0
   bloc: ^9.0.0
-  mocktail: ^1.0.4
   http: ^1.2.2
   dio: ^5.7.0
   either_dart: ^1.0.0
@@ -46,6 +45,8 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  bloc_test: ^10.0.0
+  mocktail: ^1.0.4
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
