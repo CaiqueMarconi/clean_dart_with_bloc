@@ -30,7 +30,7 @@ void main() {
       setUp: () {
         when(() => getAddressUsecaseMock.call(any()))
             .thenAnswer((invocation) async {
-          return Right(addressEntityMock);
+          return const Right(addressEntityMock);
         });
       },
       build: () => GetAddressBloc(getAddressUsecase: getAddressUsecaseMock),

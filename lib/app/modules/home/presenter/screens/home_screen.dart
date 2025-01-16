@@ -48,7 +48,6 @@ class _HomeScreenState extends State<HomeScreen> {
               }
             },
             builder: (context, state) {
-              print('//////////////////////');
               return Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [

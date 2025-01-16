@@ -16,7 +16,7 @@ void main() {
   final usecase = GetAddressUsecase(repository);
   test('Get address usecase ...', () async {
     when(() => repository.call(getAddressParamMock))
-        .thenAnswer((invocation) async => Right(addressEntityMock));
+        .thenAnswer((invocation) async => const Right(addressEntityMock));
     final result = await usecase.call(getAddressParamMock);
     expect(result.fold((l) => l, (r) => r), isA<AddressEntity>());
   });
