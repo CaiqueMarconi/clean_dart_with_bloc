@@ -18,7 +18,7 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   final _formkey = GlobalKey<FormState>();
-  String cep = '';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,16 +39,16 @@ class _HomeScreenState extends State<HomeScreen> {
             listener: (context, state) {
               if (state is ErrorGetAdressState) {
                 // Exibindo erro como Snackbar
-                final errorState = state;
                 ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(
-                    content: Text(errorState.message),
+                  const SnackBar(
+                    content: Text('Falha ao buscar o endereço!'),
                     backgroundColor: Colors.red,
                   ),
                 );
               }
             },
             builder: (context, state) {
+              print('//////////////////////');
               return Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -58,15 +58,15 @@ class _HomeScreenState extends State<HomeScreen> {
                       decoration: const InputDecoration(
                         labelText: 'Digite o CEP',
                       ),
-                      onSaved: (v) {
-                        cep = v!;
-                      },
                       validator: (v) {
                         if (v!.isEmpty) {
                           return 'O CEP não pode ser vazio';
                         } else if (v.length != 8) {
                           return 'Digite um CEP válido!';
                         }
+                        widget.homeScreenBloc.getAddressBloc.add(
+                          GetAddressEvent(cep: v),
+                        );
                         return null;
                       },
                     ),
@@ -76,13 +76,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     onPressed: state is LoadingGetAddressState
                         ? null
                         : () async {
-                            _formkey.currentState!.save();
-
-                            if (_formkey.currentState!.validate()) {
-                              widget.homeScreenBloc.getAddressBloc.add(
-                                GetAddress(cep: cep),
-                              );
-                            }
+                            _formkey.currentState!.validate();
                           },
                     child: Text(
                       state is LoadingGetAddressState
@@ -104,6 +98,5 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
       ),
     );
-    ;
   }
 }

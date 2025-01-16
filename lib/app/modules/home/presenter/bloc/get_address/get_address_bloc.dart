@@ -6,18 +6,18 @@ import 'package:clean_dart_with_bloc/app/modules/home/presenter/bloc/get_address
 
 import 'get_address_state.dart';
 
-class GetAddressBloc extends Bloc<GetAddressEvent, GetAddressState> {
+class GetAddressBloc extends Bloc<AddressEvent, GetAddressState> {
   final IGetAddressUsecase _getAddressUsecase;
 
   GetAddressBloc({
     required IGetAddressUsecase getAddressUsecase,
   })  : _getAddressUsecase = getAddressUsecase,
         super(InitialGetAddressState()) {
-    on<GetAddress>(_getAdressEvent);
+    on<GetAddressEvent>(_getAdressEvent);
   }
 
   Future<void> _getAdressEvent(
-    GetAddress event,
+    GetAddressEvent event,
     Emitter<GetAddressState> emit,
   ) async {
     emit(LoadingGetAddressState());
@@ -25,7 +25,7 @@ class GetAddressBloc extends Bloc<GetAddressEvent, GetAddressState> {
       GetAddressParam(cep: event.cep),
     );
     result.fold(
-      (left) => emit(ErrorGetAdressState(left.message)),
+      (left) => emit(ErrorGetAdressState()),
       (right) => emit(
         SuccessGetAddressState(
           address: right,

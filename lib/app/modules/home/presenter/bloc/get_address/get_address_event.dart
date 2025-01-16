@@ -1,9 +1,14 @@
-abstract class GetAddressEvent {}
+import 'package:equatable/equatable.dart';
 
-class GetAddress extends GetAddressEvent {
+abstract class AddressEvent extends Equatable {}
+
+class GetAddressEvent extends AddressEvent {
   final String cep;
 
-  GetAddress({
+  GetAddressEvent({
     required this.cep,
   });
+
+  @override
+  List<Object?> get props => [cep];
 }

@@ -1,9 +1,11 @@
+import 'package:equatable/equatable.dart';
+
 import '../get_address/get_address_state.dart';
 
-abstract class HomeScreenState {
+abstract class HomeScreenState extends Equatable {
   final GetAddressState getAdressState;
 
-  HomeScreenState({required this.getAdressState});
+  const HomeScreenState({required this.getAdressState});
 
   CurrentHomeScreenState currentState({
     GetAddressState? getAdressState,
@@ -12,10 +14,13 @@ abstract class HomeScreenState {
       getAdressState: getAdressState ?? this.getAdressState,
     );
   }
+
+  @override
+  List<Object?> get props => [getAdressState];
 }
 
 class CurrentHomeScreenState extends HomeScreenState {
-  CurrentHomeScreenState({
-    required GetAddressState getAdressState,
-  }) : super(getAdressState: getAdressState);
+  const CurrentHomeScreenState({
+    required super.getAdressState,
+  });
 }
