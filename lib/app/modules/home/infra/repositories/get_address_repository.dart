@@ -1,7 +1,6 @@
 import 'package:clean_dart_with_bloc/app/modules/home/domain/respositories/i_get_address_repository.dart';
 import 'package:either_dart/either.dart';
-
-import '../../../../core/services/rest_client/failures/app_failure/i_app_failure.dart';
+import '../../../../core/services/failures/app_failure/i_app_failure.dart';
 import '../../domain/entities/address_entity.dart';
 import '../../domain/helpers/params/get_address_param.dart';
 import '../datasources/i_get_address_datasource.dart';

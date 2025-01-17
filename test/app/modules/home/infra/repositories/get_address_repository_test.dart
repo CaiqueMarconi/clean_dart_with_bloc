@@ -1,4 +1,4 @@
-import 'package:clean_dart_with_bloc/app/core/services/rest_client/failures/app_failure/i_app_failure.dart';
+import 'package:clean_dart_with_bloc/app/core/services/failures/app_failure/i_app_failure.dart';
 import 'package:clean_dart_with_bloc/app/modules/home/domain/entities/address_entity.dart';
 import 'package:clean_dart_with_bloc/app/modules/home/infra/datasources/i_get_address_datasource.dart';
 import 'package:clean_dart_with_bloc/app/modules/home/infra/repositories/get_address_repository.dart';

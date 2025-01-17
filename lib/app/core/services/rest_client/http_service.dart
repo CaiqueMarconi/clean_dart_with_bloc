@@ -1,5 +1,5 @@
 import 'dart:io';
-import 'failures/app_failure/app_failure.dart';
+import '../failures/app_failure/app_failure.dart';
 import 'helpers/params/http_param.dart';
 import 'helpers/responses/http_response.dart';
 import 'i_http_service.dart';

@@ -6,6 +6,9 @@ import 'package:clean_dart_with_bloc/app/modules/home/presenter/bloc/get_address
 
 import 'get_address_state.dart';
 
+// CAMADA BLOC: No Bloc, a camada Bloc é responsável por processar eventos e aplicar a lógica de negócios necessária,
+// emitindo estados que representam as respostas do componente. Ela conecta eventos às transições de estado de forma reativa.
+
 class GetAddressBloc extends Bloc<AddressEvent, GetAddressState> {
   final IGetAddressUsecase _getAddressUsecase;
 
