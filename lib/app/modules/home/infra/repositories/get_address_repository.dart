@@ -6,6 +6,7 @@ import '../../domain/helpers/params/get_address_param.dart';
 import '../datasources/i_get_address_datasource.dart';
 
 class GetAddressRepository implements IGetAddressRepository {
+  //
   final IGetAddressDatasource _datasource;
 
   const GetAddressRepository(this._datasource);
